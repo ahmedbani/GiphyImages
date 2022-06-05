@@ -13,7 +13,7 @@ export default function HomeScreen({ navigation }) {
     const {data: searchedImages = []} = useSearchByNameQuery(search,{skip : search === ''});
 
     const displayedImages = useMemo(()=>{
-        return search === '' ? images :searchedImages;
+        return search === '' ? images :searchedImages.data || [];
     },[images,searchedImages,search])
 
     return (
