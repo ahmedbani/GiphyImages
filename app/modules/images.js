@@ -13,6 +13,9 @@ export const imagesApi = createApi({
               limit: 20
           },
         }),
+        transformResponse:(response)=>{
+            return response.data
+        }
     }),
     searchByName: builder.query({
         query: (query) => ({
@@ -21,7 +24,10 @@ export const imagesApi = createApi({
                 api_key: 'sFtwylYoLmzgPA4OMlKr61IJt42V81wB',
                 limit: 20,
                 q: query
-            }
+            },
+            transformResponse:(response)=>{
+              return response.data
+          }
         }),
       }),
       searchById: builder.query({
