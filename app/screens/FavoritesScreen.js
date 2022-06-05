@@ -9,8 +9,8 @@ import defaultStyles from '../components/config/styles';
 
 export default function FavoritesScreen({navigation}) {
     const favorites = useSelector(state => selectFavorite(state))
-    const count = favorites.length;
     console.log(favorites);
+    const count = favorites.length;
     return (
         <SafeAreaView>
             <View style= {styles.count}>
