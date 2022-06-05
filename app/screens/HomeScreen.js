@@ -9,11 +9,11 @@ import defaultStyles from '../components/config/styles';
 export default function HomeScreen({ navigation }) {
     const [search, setSearch] = useState('');
 
-    const {data: {data: images = []}} = useGetTrendingQuery();
-    const {data: searchedImages} = useSearchByNameQuery(search,{skip : search === ''});
+    const {data: images = []} = useGetTrendingQuery();
+    const {data: searchedImages = []} = useSearchByNameQuery(search,{skip : search === ''});
 
     const displayedImages = useMemo(()=>{
-        return search === '' ? images :searchedImages?.data || [];
+        return search === '' ? images :searchedImages;
     },[images,searchedImages,search])
 
     return (
