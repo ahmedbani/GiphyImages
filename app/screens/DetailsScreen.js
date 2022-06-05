@@ -9,11 +9,11 @@ import defaultStyles from '../components/config/styles';
 export default function DetailsScreen({navigation,route}) {
 
     const {url, title, description, type, slug, item} = route.params;
-    const isFavorite = useSelector(state => selectIsFavorite (state, item))
+    const isFavorite = useSelector(state => selectIsFavorite (state, item.id))
     const dispatch = useDispatch();
 
     const addRemoveFav = () =>{
-        isFavorite ? dispatch(removeFromFavorite(item)) : dispatch(addToFavorite(item))
+        isFavorite ? dispatch(removeFromFavorite(item.id)) : dispatch(addToFavorite(item))
     }
     return (
         <View style= {styles.container}>
