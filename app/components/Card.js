@@ -8,11 +8,11 @@ import defaultStyles from './config/styles';
 
 function Card({title, image, description, item, onPress}) {
 
-    const isFavorite = useSelector(state => selectIsFavorite (state, item))
+    const isFavorite = useSelector(state => selectIsFavorite (state, item.id))
     const dispatch = useDispatch();
 
     const addRemoveFav = () =>{
-        isFavorite ? dispatch(removeFromFavorite(item)) : dispatch(addToFavorite(item))
+        isFavorite ? dispatch(removeFromFavorite(item.id)) : dispatch(addToFavorite(item))
     }
     return (
         <Pressable style={styles.card} onPress={onPress}>
